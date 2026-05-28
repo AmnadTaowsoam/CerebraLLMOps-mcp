@@ -1,0 +1,13 @@
+{
+  "name": "CerebraLLMOps-mcp",
+  "version": "0.1.0",
+  "mcp_number": 13,
+  "port": 4300,
+  "schema": "llmops",
+  "status": "content-phase",
+  "description": "LLM/Agent Operational Control Layer — prompt versioning, model routing, quality evaluation, feedback loop, guardrails",
+  "owner_team": "platform",
+  "phase": "content_scaffold",
+  "depends_on": ["CerebraOrchestrator-mcp", "CerebraStandards-mcp", "CerebraGraphLayer"],
+  "integrates_with": ["CerebraRole-mcp", "CerebraSkills-mcp", "CerebraKnowledge-mcp", "CerebraSecurity-mcp", "CerebraDebugs-mcp", "CerebraReview-mcp", "CerebraTesting-mcp", "CerebraDevOps-mcp", "CerebraCodeGraph-mcp"]
+}

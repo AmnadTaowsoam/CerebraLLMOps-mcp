@@ -1,0 +1,131 @@
+[
+  {
+    "node_id": "mcp-cerebra-llmops",
+    "node_type": "mcp",
+    "name": "CerebraLLMOps-mcp",
+    "description": "LLM/Agent Operational Control Layer — prompt versioning, model routing, quality evaluation, feedback loop, guardrails",
+    "owner_mcp": "CerebraLLMOps-mcp",
+    "status": "active",
+    "priority": "high",
+    "tags": ["llmops", "observability", "quality", "routing", "guardrails"]
+  },
+  {
+    "node_id": "skill-llmops-prompt-versioning",
+    "node_type": "skill",
+    "name": "LLMOps Prompt Versioning",
+    "description": "Skill for managing prompt template lifecycle: register, version, review, promote, rollback. Enforces STD-AI-PROMPT-VERSION-001.",
+    "owner_mcp": "CerebraLLMOps-mcp",
+    "status": "active",
+    "priority": "high",
+    "tags": ["llmops", "prompts", "versioning"],
+    "source_path": "content/prompts/prompt-versioning-policy.md"
+  },
+  {
+    "node_id": "skill-llmops-model-routing",
+    "node_type": "skill",
+    "name": "LLMOps Model Routing",
+    "description": "Skill for selecting the appropriate AI model given task_type and risk_level. Uses the task_type × risk decision matrix.",
+    "owner_mcp": "CerebraLLMOps-mcp",
+    "status": "active",
+    "priority": "high",
+    "tags": ["llmops", "model-routing", "cost-optimization"],
+    "source_path": "content/models/model-routing-policy.md"
+  },
+  {
+    "node_id": "skill-llmops-quality-evaluation",
+    "node_type": "skill",
+    "name": "LLMOps Quality Evaluation",
+    "description": "Skill for running automated and human evaluation on agent outputs. Includes schema validation, behavioral eval suites, and regression testing.",
+    "owner_mcp": "CerebraLLMOps-mcp",
+    "status": "active",
+    "priority": "high",
+    "tags": ["llmops", "evaluation", "quality"],
+    "source_path": "content/evaluation/evaluation-strategy.md"
+  },
+  {
+    "node_id": "skill-llmops-feedback-loop",
+    "node_type": "skill",
+    "name": "LLMOps Feedback Loop",
+    "description": "Skill for collecting, classifying, and routing feedback from downstream MCPs into the continuous improvement workflow.",
+    "owner_mcp": "CerebraLLMOps-mcp",
+    "status": "active",
+    "priority": "medium",
+    "tags": ["llmops", "feedback", "continuous-improvement"],
+    "source_path": "content/feedback-loop/continuous-improvement-workflow.md"
+  },
+  {
+    "node_id": "std-llmops-prompt-versioning",
+    "node_type": "standard",
+    "name": "Prompt Versioning Standard",
+    "description": "Defines semver rules, immutability, rollback naming, and quality gate requirements for all LLM prompt templates. References STD-AI-PROMPT-VERSION-001.",
+    "owner_mcp": "CerebraLLMOps-mcp",
+    "status": "active",
+    "priority": "critical",
+    "tags": ["llmops", "prompts", "versioning", "all-tasks"],
+    "source_path": "content/prompts/prompt-versioning-policy.md"
+  },
+  {
+    "node_id": "std-llmops-agent-behavior",
+    "node_type": "standard",
+    "name": "LLMOps Agent Behavior Standard",
+    "description": "Mandatory behavioral rules for all Cerebra agents: orchestrator-first, no forbidden tools, human escalation triggers, evidence-based outputs, no self-modification.",
+    "owner_mcp": "CerebraLLMOps-mcp",
+    "status": "active",
+    "priority": "critical",
+    "tags": ["llmops", "agent", "behavior", "all-tasks"],
+    "source_path": "content/agents/agent-behavior-policy.md"
+  },
+  {
+    "node_id": "std-llmops-observability",
+    "node_type": "standard",
+    "name": "LLM Observability Standard",
+    "description": "Mandatory fields for every managed LLM run trace: agent_id, prompt_version, model_id, input_tokens, output_tokens, cost_estimate, latency_ms, tool_calls, eval_result.",
+    "owner_mcp": "CerebraLLMOps-mcp",
+    "status": "active",
+    "priority": "high",
+    "tags": ["llmops", "observability", "tracing", "all-tasks"],
+    "source_path": "content/observability/llm-observability-standard.md"
+  },
+  {
+    "node_id": "review-gate-llmops-high-risk-output",
+    "node_type": "review_gate",
+    "name": "LLMOps High-Risk Output Review Gate",
+    "description": "12-item human review gate for critical-risk agent outputs. All 12 items must pass before the output can be acted upon.",
+    "owner_mcp": "CerebraLLMOps-mcp",
+    "status": "active",
+    "priority": "critical",
+    "tags": ["llmops", "review", "quality-gate", "critical-risk"],
+    "source_path": "content/quality-gates/high-risk-output-review-checklist.md"
+  },
+  {
+    "node_id": "sec-llmops-guardrails",
+    "node_type": "security_rule",
+    "name": "LLM Guardrail Security Rules",
+    "description": "Active guardrails enforced on all managed LLM runs: sensitive context scan, output schema validation, PII scrub, citation grounding, tool permission check, content filter.",
+    "owner_mcp": "CerebraLLMOps-mcp",
+    "status": "active",
+    "priority": "critical",
+    "tags": ["llmops", "security", "guardrails", "all-tasks"],
+    "source_path": "content/guardrails/llm-guardrail-policy.md"
+  },
+  {
+    "node_id": "task-type-llmops-prompt-update",
+    "node_type": "task_type",
+    "name": "Prompt Version Update",
+    "description": "Task type for registering, reviewing, and promoting a new prompt version. Follows prompt-versioning-policy and prompt-readiness-checklist.",
+    "owner_mcp": "CerebraLLMOps-mcp",
+    "status": "active",
+    "priority": "medium",
+    "tags": ["llmops", "prompts", "versioning"]
+  },
+  {
+    "node_id": "task-type-llmops-model-routing-change",
+    "node_type": "task_type",
+    "name": "Model Routing Change",
+    "description": "Task type for updating model routing policy. Requires proposal workflow, shadow mode, regression eval, and model-change-readiness-checklist.",
+    "owner_mcp": "CerebraLLMOps-mcp",
+    "status": "active",
+    "priority": "high",
+    "tags": ["llmops", "model-routing", "platform"]
+  }
+]

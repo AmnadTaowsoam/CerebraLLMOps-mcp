@@ -1,0 +1,133 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://cerebra-mcp/schemas/llmops/feedback",
+  "title": "FeedbackItem",
+  "description": "Schema for a feedback item submitted to CerebraLLMOps-mcp",
+  "type": "object",
+  "required": [
+    "feedback_id",
+    "source_mcp",
+    "feedback_type",
+    "target_type",
+    "target_id",
+    "summary",
+    "severity",
+    "is_blocking",
+    "submitted_at",
+    "submitted_by",
+    "tenant_id",
+    "status"
+  ],
+  "properties": {
+    "feedback_id": {
+      "type": "string",
+      "pattern": "^feedback-[a-f0-9-]+$"
+    },
+    "source_mcp": {
+      "type": "string",
+      "description": "Which MCP or entity submitted this feedback",
+      "examples": [
+        "CerebraReview-mcp",
+        "CerebraDebugs-mcp",
+        "CerebraSecurity-mcp",
+        "CerebraTesting-mcp",
+        "CerebraStandards-mcp",
+        "CerebraLLMOps-mcp",
+        "human"
+      ]
+    },
+    "feedback_type": {
+      "type": "string",
+      "enum": [
+        "review_finding",
+        "debug_finding",
+        "quality_gate_result",
+        "security_finding",
+        "standards_violation",
+        "human_review_result",
+        "eval_failure",
+        "gap_signal"
+      ]
+    },
+    "target_type": {
+      "type": "string",
+      "enum": ["agent", "prompt", "model", "policy", "eval_suite", "guardrail"]
+    },
+    "target_id": {
+      "type": "string",
+      "description": "ID of the affected artifact",
+      "examples": ["agent-knowledge", "prompt-knowledge-rag-search", "claude-sonnet-4-5"]
+    },
+    "target_version": {
+      "type": ["string", "null"],
+      "description": "Version of the target artifact, if applicable"
+    },
+    "related_trace_id": {
+      "type": ["string", "null"],
+      "description": "LLM trace ID this feedback relates to"
+    },
+    "related_run_id": {
+      "type": ["string", "null"]
+    },
+    "summary": {
+      "type": "string",
+      "description": "One-sentence description of the finding (max 100 chars for dashboard display)",
+      "maxLength": 100
+    },
+    "detail": {
+      "type": "string",
+      "description": "Detailed description with evidence and context",
+      "minLength": 20
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["critical", "high", "medium", "low", "info"]
+    },
+    "is_blocking": {
+      "type": "boolean",
+      "description": "Whether this feedback blocks the target from being promoted or used"
+    },
+    "evidence": {
+      "type": "object",
+      "description": "Supporting evidence for the feedback",
+      "properties": {
+        "eval_case_id": { "type": ["string", "null"] },
+        "actual_output": { "type": ["string", "null"] },
+        "expected": { "type": ["string", "null"] },
+        "standard_id": { "type": ["string", "null"] },
+        "trace_id": { "type": ["string", "null"] },
+        "eval_suite_id": { "type": ["string", "null"] },
+        "pass_rate": { "type": ["number", "null"] }
+      }
+    },
+    "suggested_improvement": {
+      "type": ["string", "null"],
+      "description": "Optional: what the submitter thinks should change"
+    },
+    "linked_pattern_id": {
+      "type": ["string", "null"],
+      "description": "Failure pattern ID this feedback is linked to"
+    },
+    "submitted_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "submitted_by": {
+      "type": "string",
+      "description": "Agent ID or user ID who submitted this feedback"
+    },
+    "tenant_id": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["open", "acknowledged", "in_progress", "resolved", "wont_fix"]
+    },
+    "resolved_at": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "resolution_note": {
+      "type": ["string", "null"]
+    }
+  },
+  "additionalProperties": false
+}

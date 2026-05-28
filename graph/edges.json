@@ -1,0 +1,347 @@
+[
+  {
+    "source_id": "mcp-cerebra-llmops",
+    "source_type": "mcp",
+    "target_id": "skill-llmops-prompt-versioning",
+    "target_type": "skill",
+    "relationship_type": "owns_node",
+    "metadata": {
+      "legacy": {
+        "edge_id": "edge-mcp-cerebra-llmops-owns_node-skill-llmops-prompt-versioning",
+        "owner_mcp": "CerebraLLMOps-mcp",
+        "reason": null,
+        "evidence": null
+      }
+    }
+  },
+  {
+    "source_id": "mcp-cerebra-llmops",
+    "source_type": "mcp",
+    "target_id": "skill-llmops-model-routing",
+    "target_type": "skill",
+    "relationship_type": "owns_node",
+    "metadata": {
+      "legacy": {
+        "edge_id": "edge-mcp-cerebra-llmops-owns_node-skill-llmops-model-routing",
+        "owner_mcp": "CerebraLLMOps-mcp",
+        "reason": null,
+        "evidence": null
+      }
+    }
+  },
+  {
+    "source_id": "mcp-cerebra-llmops",
+    "source_type": "mcp",
+    "target_id": "skill-llmops-quality-evaluation",
+    "target_type": "skill",
+    "relationship_type": "owns_node",
+    "metadata": {
+      "legacy": {
+        "edge_id": "edge-mcp-cerebra-llmops-owns_node-skill-llmops-quality-evaluation",
+        "owner_mcp": "CerebraLLMOps-mcp",
+        "reason": null,
+        "evidence": null
+      }
+    }
+  },
+  {
+    "source_id": "mcp-cerebra-llmops",
+    "source_type": "mcp",
+    "target_id": "skill-llmops-feedback-loop",
+    "target_type": "skill",
+    "relationship_type": "owns_node",
+    "metadata": {
+      "legacy": {
+        "edge_id": "edge-mcp-cerebra-llmops-owns_node-skill-llmops-feedback-loop",
+        "owner_mcp": "CerebraLLMOps-mcp",
+        "reason": null,
+        "evidence": null
+      }
+    }
+  },
+  {
+    "source_id": "mcp-cerebra-llmops",
+    "source_type": "mcp",
+    "target_id": "std-llmops-prompt-versioning",
+    "target_type": "standard",
+    "relationship_type": "owns_node",
+    "metadata": {
+      "legacy": {
+        "edge_id": "edge-mcp-cerebra-llmops-owns_node-std-llmops-prompt-versioning",
+        "owner_mcp": "CerebraLLMOps-mcp",
+        "reason": null,
+        "evidence": null
+      }
+    }
+  },
+  {
+    "source_id": "mcp-cerebra-llmops",
+    "source_type": "mcp",
+    "target_id": "std-llmops-agent-behavior",
+    "target_type": "standard",
+    "relationship_type": "owns_node",
+    "metadata": {
+      "legacy": {
+        "edge_id": "edge-mcp-cerebra-llmops-owns_node-std-llmops-agent-behavior",
+        "owner_mcp": "CerebraLLMOps-mcp",
+        "reason": null,
+        "evidence": null
+      }
+    }
+  },
+  {
+    "source_id": "mcp-cerebra-llmops",
+    "source_type": "mcp",
+    "target_id": "std-llmops-observability",
+    "target_type": "standard",
+    "relationship_type": "owns_node",
+    "metadata": {
+      "legacy": {
+        "edge_id": "edge-mcp-cerebra-llmops-owns_node-std-llmops-observability",
+        "owner_mcp": "CerebraLLMOps-mcp",
+        "reason": null,
+        "evidence": null
+      }
+    }
+  },
+  {
+    "source_id": "mcp-cerebra-llmops",
+    "source_type": "mcp",
+    "target_id": "review-gate-llmops-high-risk-output",
+    "target_type": "review_gate",
+    "relationship_type": "owns_node",
+    "metadata": {
+      "legacy": {
+        "edge_id": "edge-mcp-cerebra-llmops-owns_node-review-gate-llmops-high-risk-output",
+        "owner_mcp": "CerebraLLMOps-mcp",
+        "reason": null,
+        "evidence": null
+      }
+    }
+  },
+  {
+    "source_id": "mcp-cerebra-llmops",
+    "source_type": "mcp",
+    "target_id": "sec-llmops-guardrails",
+    "target_type": "security_rule",
+    "relationship_type": "owns_node",
+    "metadata": {
+      "legacy": {
+        "edge_id": "edge-mcp-cerebra-llmops-owns_node-sec-llmops-guardrails",
+        "owner_mcp": "CerebraLLMOps-mcp",
+        "reason": null,
+        "evidence": null
+      }
+    }
+  },
+  {
+    "source_id": "mcp-cerebra-llmops",
+    "source_type": "mcp",
+    "target_id": "task-type-llmops-prompt-update",
+    "target_type": "task_type",
+    "relationship_type": "owns_node",
+    "metadata": {
+      "legacy": {
+        "edge_id": "edge-mcp-cerebra-llmops-owns_node-task-type-llmops-prompt-update",
+        "owner_mcp": "CerebraLLMOps-mcp",
+        "reason": null,
+        "evidence": null
+      }
+    }
+  },
+  {
+    "source_id": "mcp-cerebra-llmops",
+    "source_type": "mcp",
+    "target_id": "task-type-llmops-model-routing-change",
+    "target_type": "task_type",
+    "relationship_type": "owns_node",
+    "metadata": {
+      "legacy": {
+        "edge_id": "edge-mcp-cerebra-llmops-owns_node-task-type-llmops-model-routing-change",
+        "owner_mcp": "CerebraLLMOps-mcp",
+        "reason": null,
+        "evidence": null
+      }
+    }
+  },
+  {
+    "source_id": "skill-llmops-prompt-versioning",
+    "source_type": "skill",
+    "target_id": "std-llmops-prompt-versioning",
+    "target_type": "standard",
+    "relationship_type": "must_use_standard",
+    "metadata": {
+      "legacy": {
+        "edge_id": "edge-skill-llmops-prompt-versioning-must_use_standard-std-llmops-prompt-versioning",
+        "owner_mcp": "CerebraLLMOps-mcp",
+        "reason": "Prompt versioning skill must enforce the prompt versioning standard",
+        "evidence": null
+      }
+    }
+  },
+  {
+    "source_id": "skill-llmops-prompt-versioning",
+    "source_type": "skill",
+    "target_id": "task-type-llmops-prompt-update",
+    "target_type": "task_type",
+    "relationship_type": "applies_to_task_type",
+    "metadata": {
+      "legacy": {
+        "edge_id": "edge-skill-llmops-prompt-versioning-applies_to_task_type-task-type-llmops-prompt-update",
+        "owner_mcp": "CerebraLLMOps-mcp",
+        "reason": "Prompt versioning skill is the execution skill for prompt update tasks",
+        "evidence": null
+      }
+    }
+  },
+  {
+    "source_id": "skill-llmops-model-routing",
+    "source_type": "skill",
+    "target_id": "task-type-llmops-model-routing-change",
+    "target_type": "task_type",
+    "relationship_type": "applies_to_task_type",
+    "metadata": {
+      "legacy": {
+        "edge_id": "edge-skill-llmops-model-routing-applies_to_task_type-task-type-llmops-model-routing-change",
+        "owner_mcp": "CerebraLLMOps-mcp",
+        "reason": "Model routing skill is the execution skill for routing change tasks",
+        "evidence": null
+      }
+    }
+  },
+  {
+    "source_id": "skill-llmops-quality-evaluation",
+    "source_type": "skill",
+    "target_id": "task-type-llmops-prompt-update",
+    "target_type": "task_type",
+    "relationship_type": "applies_to_task_type",
+    "metadata": {
+      "legacy": {
+        "edge_id": "edge-skill-llmops-quality-evaluation-applies_to_task_type-task-type-llmops-prompt-update",
+        "owner_mcp": "CerebraLLMOps-mcp",
+        "reason": "Quality evaluation is required as part of prompt version promotion",
+        "evidence": null
+      }
+    }
+  },
+  {
+    "source_id": "skill-llmops-quality-evaluation",
+    "source_type": "skill",
+    "target_id": "task-type-llmops-model-routing-change",
+    "target_type": "task_type",
+    "relationship_type": "applies_to_task_type",
+    "metadata": {
+      "legacy": {
+        "edge_id": "edge-skill-llmops-quality-evaluation-applies_to_task_type-task-type-llmops-model-routing-change",
+        "owner_mcp": "CerebraLLMOps-mcp",
+        "reason": "Quality evaluation via regression suite is required before model routing changes",
+        "evidence": null
+      }
+    }
+  },
+  {
+    "source_id": "skill-llmops-feedback-loop",
+    "source_type": "skill",
+    "target_id": "task-type-llmops-prompt-update",
+    "target_type": "task_type",
+    "relationship_type": "applies_to_task_type",
+    "metadata": {
+      "legacy": {
+        "edge_id": "edge-skill-llmops-feedback-loop-applies_to_task_type-task-type-llmops-prompt-update",
+        "owner_mcp": "CerebraLLMOps-mcp",
+        "reason": "Feedback loop feeds improvement proposals that result in prompt updates",
+        "evidence": null
+      }
+    }
+  },
+  {
+    "source_id": "review-gate-llmops-high-risk-output",
+    "source_type": "review_gate",
+    "target_id": "std-llmops-agent-behavior",
+    "target_type": "standard",
+    "relationship_type": "validates_standard",
+    "metadata": {
+      "legacy": {
+        "edge_id": "edge-review-gate-llmops-high-risk-output-validates_standard-std-llmops-agent-behavior",
+        "owner_mcp": "CerebraLLMOps-mcp",
+        "reason": "The high-risk output review gate validates compliance with the agent behavior standard",
+        "evidence": null
+      }
+    }
+  },
+  {
+    "source_id": "review-gate-llmops-high-risk-output",
+    "source_type": "review_gate",
+    "target_id": "std-llmops-observability",
+    "target_type": "standard",
+    "relationship_type": "validates_standard",
+    "metadata": {
+      "legacy": {
+        "edge_id": "edge-review-gate-llmops-high-risk-output-validates_standard-std-llmops-observability",
+        "owner_mcp": "CerebraLLMOps-mcp",
+        "reason": "High-risk review confirms trace fields are complete per observability standard",
+        "evidence": null
+      }
+    }
+  },
+  {
+    "source_id": "sec-llmops-guardrails",
+    "source_type": "security_rule",
+    "target_id": "task-type-llmops-prompt-update",
+    "target_type": "task_type",
+    "relationship_type": "required_for_task_type",
+    "metadata": {
+      "legacy": {
+        "edge_id": "edge-sec-llmops-guardrails-required_for_task_type-task-type-llmops-prompt-update",
+        "owner_mcp": "CerebraLLMOps-mcp",
+        "reason": "Guardrails must be enforced during prompt update evaluation runs",
+        "evidence": null
+      }
+    }
+  },
+  {
+    "source_id": "sec-llmops-guardrails",
+    "source_type": "security_rule",
+    "target_id": "task-type-llmops-model-routing-change",
+    "target_type": "task_type",
+    "relationship_type": "required_for_task_type",
+    "metadata": {
+      "legacy": {
+        "edge_id": "edge-sec-llmops-guardrails-required_for_task_type-task-type-llmops-model-routing-change",
+        "owner_mcp": "CerebraLLMOps-mcp",
+        "reason": "Guardrails govern the shadow mode validation runs during model routing changes",
+        "evidence": null
+      }
+    }
+  },
+  {
+    "source_id": "std-llmops-agent-behavior",
+    "source_type": "standard",
+    "target_id": "std-core-agent-behavior",
+    "target_type": "standard",
+    "relationship_type": "requires",
+    "metadata": {
+      "legacy": {
+        "edge_id": "edge-std-llmops-agent-behavior-requires-std-core-agent-behavior",
+        "owner_mcp": "CerebraLLMOps-mcp",
+        "reason": "LLMOps agent behavior standard extends and specializes the core agent behavior standard",
+        "evidence": null
+      }
+    }
+  },
+  {
+    "source_id": "std-llmops-prompt-versioning",
+    "source_type": "standard",
+    "target_id": "std-core-agent-behavior",
+    "target_type": "standard",
+    "relationship_type": "requires",
+    "metadata": {
+      "legacy": {
+        "edge_id": "edge-std-llmops-prompt-versioning-requires-std-core-agent-behavior",
+        "owner_mcp": "CerebraLLMOps-mcp",
+        "reason": "Prompt versioning must be done by agents following the core agent behavior standard",
+        "evidence": null
+      }
+    }
+  }
+]

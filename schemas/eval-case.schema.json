@@ -1,0 +1,130 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://cerebra-mcp/schemas/llmops/eval-case",
+  "title": "EvalCase",
+  "description": "Schema for an evaluation case in an eval suite",
+  "type": "object",
+  "required": [
+    "case_id",
+    "suite_id",
+    "input",
+    "expected_output_criteria",
+    "assertion_type",
+    "weight"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string",
+      "description": "Unique identifier for this eval case",
+      "pattern": "^[A-Z]+-\\d{3}$",
+      "examples": ["GC-001", "AB-003", "HL-007"]
+    },
+    "suite_id": {
+      "type": "string",
+      "description": "The eval suite this case belongs to",
+      "examples": ["eval-suite-regression-baseline", "eval-suite-agent-behavior"]
+    },
+    "name": {
+      "type": "string",
+      "description": "Short descriptive name for the case",
+      "maxLength": 100
+    },
+    "task_type": {
+      "type": "string",
+      "description": "The task_type this case exercises"
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": ["low", "medium", "high", "critical"]
+    },
+    "input": {
+      "type": "object",
+      "description": "The input to the agent/prompt being evaluated",
+      "properties": {
+        "user_message": { "type": "string" },
+        "context_documents": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "injected_conditions": {
+          "type": "object",
+          "description": "Conditions artificially injected to test specific behaviors"
+        }
+      },
+      "required": ["user_message"]
+    },
+    "expected_output_criteria": {
+      "type": "array",
+      "description": "List of criteria that must be true about the output",
+      "items": {
+        "type": "object",
+        "properties": {
+          "criterion": {
+            "type": "string",
+            "description": "Description of what must be true"
+          },
+          "required": {
+            "type": "boolean",
+            "description": "Whether this criterion must pass (true) or is optional"
+          }
+        },
+        "required": ["criterion", "required"]
+      },
+      "minItems": 1
+    },
+    "assertion_type": {
+      "type": "string",
+      "enum": [
+        "output_contains",
+        "output_not_contains",
+        "citation_present",
+        "citation_in_context",
+        "schema_valid",
+        "escalation_triggered",
+        "behavior_unchanged",
+        "does_not_call_forbidden_tool",
+        "sensitive_data_not_echoed",
+        "standard_id_exists",
+        "node_id_in_context",
+        "role_not_changed",
+        "system_prompt_not_revealed",
+        "self_modification_refused",
+        "error_surfaced_not_hidden",
+        "custom"
+      ],
+      "description": "The primary assertion mechanism for this case"
+    },
+    "custom_assertion_description": {
+      "type": ["string", "null"],
+      "description": "Required when assertion_type = 'custom'"
+    },
+    "weight": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Case weight for scoring. 1.0 = critical (must pass); 0.5-0.9 = important"
+    },
+    "rationale": {
+      "type": ["string", "null"],
+      "description": "Why this case was added to the suite"
+    },
+    "linked_failure_pattern": {
+      "type": ["string", "null"],
+      "description": "Failure pattern ID this case guards against"
+    },
+    "added_by": {
+      "type": "string",
+      "description": "Who added this case"
+    },
+    "added_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "disabled", "superseded"],
+      "default": "active"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,42 @@
+{
+  "mcp": "CerebraLLMOps-mcp",
+  "mcp_number": 13,
+  "version": "0.1.0",
+  "node_count": 12,
+  "edge_count": 23,
+  "last_updated": "2026-05-28",
+  "node_types": {
+    "mcp": 1,
+    "skill": 4,
+    "standard": 3,
+    "review_gate": 1,
+    "security_rule": 1,
+    "task_type": 2
+  },
+  "edge_relationship_types": {
+    "owns_node": 11,
+    "must_use_standard": 1,
+    "applies_to_task_type": 5,
+    "validates_standard": 2,
+    "required_for_task_type": 2,
+    "requires": 2
+  },
+  "cross_mcp_edges": [
+    {
+      "target_node_id": "std-core-agent-behavior",
+      "target_mcp": "CerebraStandards-mcp",
+      "relationship_type": "requires",
+      "count": 2
+    }
+  ],
+  "status": "content-phase",
+  "phase2_node_additions_planned": [
+    "skill-llmops-agent-versioning",
+    "skill-llmops-cost-tracking",
+    "skill-llmops-latency-monitoring",
+    "task-type-llmops-agent-instruction-change",
+    "task-type-llmops-eval-run",
+    "review-gate-llmops-prompt-promotion",
+    "review-gate-llmops-agent-promotion"
+  ]
+}

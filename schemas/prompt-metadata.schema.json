@@ -1,0 +1,118 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://cerebra-mcp/schemas/llmops/prompt-metadata",
+  "title": "PromptMetadata",
+  "description": "Schema for a prompt registry entry in CerebraLLMOps-mcp",
+  "type": "object",
+  "required": [
+    "prompt_id",
+    "name",
+    "version",
+    "task_types",
+    "owner_mcp",
+    "status",
+    "created_at"
+  ],
+  "properties": {
+    "prompt_id": {
+      "type": "string",
+      "description": "Unique identifier for the prompt (kebab-case)",
+      "pattern": "^prompt-[a-z0-9-]+$",
+      "examples": ["prompt-knowledge-rag-search", "prompt-security-policy-eval"]
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable prompt name",
+      "minLength": 3,
+      "maxLength": 100
+    },
+    "version": {
+      "type": "string",
+      "description": "Semantic version of the prompt (semver format)",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "examples": ["1.0.0", "2.3.1"]
+    },
+    "task_types": {
+      "type": "array",
+      "description": "Task types this prompt is designed to handle",
+      "items": {
+        "type": "string",
+        "examples": ["knowledge_retrieval", "security_analysis", "code_generation"]
+      },
+      "minItems": 1
+    },
+    "model_binding": {
+      "type": "string",
+      "description": "The model_id this prompt is optimized and tested for",
+      "examples": ["claude-sonnet-4-5", "claude-opus-4", "claude-haiku-3-5"],
+      "nullable": true
+    },
+    "token_budget_hint": {
+      "type": "object",
+      "description": "Recommended token budget for this prompt",
+      "properties": {
+        "max_input_tokens": { "type": "integer", "minimum": 1 },
+        "max_output_tokens": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "owner_mcp": {
+      "type": "string",
+      "description": "The MCP that owns and maintains this prompt",
+      "examples": ["CerebraKnowledge-mcp", "CerebraSecurity-mcp"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "review", "active", "superseded", "deprecated", "archived", "rejected"],
+      "description": "Current lifecycle status of this prompt version"
+    },
+    "eval_suite_id": {
+      "type": ["string", "null"],
+      "description": "ID of the eval suite bound to this prompt",
+      "examples": ["eval-suite-knowledge-rag", "eval-suite-security-analysis"]
+    },
+    "review_checklist_completed": {
+      "type": "boolean",
+      "description": "Whether the 10-item prompt review checklist has been completed"
+    },
+    "regression_eval_result_id": {
+      "type": ["string", "null"],
+      "description": "ID of the regression eval run result for this version"
+    },
+    "reviewed_by": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of reviewer IDs who completed the review checklist",
+      "maxItems": 2
+    },
+    "output_schema_id": {
+      "type": ["string", "null"],
+      "description": "JSON Schema ID for output validation, if required"
+    },
+    "source_path": {
+      "type": ["string", "null"],
+      "description": "Relative path to the prompt template file",
+      "examples": ["content/prompts/knowledge-rag-search-v2.1.0.md"]
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Optional tags for categorization"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when this version was first registered"
+    },
+    "activated_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when this version was promoted to active"
+    },
+    "superseded_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when this version was superseded"
+    }
+  },
+  "additionalProperties": false
+}

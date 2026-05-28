@@ -1,0 +1,156 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://cerebra-mcp/schemas/llmops/llmops-context-package",
+  "title": "LLMOpsContextPackage",
+  "description": "Context package returned by CerebraLLMOps-mcp to the Orchestrator before each managed LLM run",
+  "type": "object",
+  "required": [
+    "package_id",
+    "generated_at",
+    "expires_at",
+    "tenant_id",
+    "agent_id",
+    "task_id",
+    "prompt_version",
+    "prompt_id",
+    "system_prompt_version",
+    "model_id",
+    "model_provider",
+    "fallback_model_id",
+    "routing_reason",
+    "token_budget",
+    "eval_requirement",
+    "regression_eval_required",
+    "guardrail_level",
+    "active_guardrails",
+    "output_schema_required",
+    "human_review_required",
+    "context_budget",
+    "cost_budget",
+    "latency_budget",
+    "risk_level",
+    "risk_factors",
+    "allowed_tools",
+    "forbidden_tools"
+  ],
+  "properties": {
+    "package_id": {
+      "type": "string",
+      "pattern": "^pkg-[a-f0-9-]+$"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expires_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Package is valid for 10 minutes from generated_at"
+    },
+    "tenant_id": { "type": "string" },
+    "agent_id": { "type": "string" },
+    "task_id": { "type": "string" },
+    "prompt_id": { "type": "string" },
+    "prompt_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "system_prompt_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "model_id": { "type": "string" },
+    "model_provider": {
+      "type": "string",
+      "enum": ["anthropic", "ollama", "openai"]
+    },
+    "fallback_model_id": { "type": "string" },
+    "routing_reason": { "type": "string" },
+    "token_budget": {
+      "type": "object",
+      "required": ["max_input_tokens", "max_output_tokens", "estimated_input_tokens", "budget_remaining_today", "overage_policy"],
+      "properties": {
+        "max_input_tokens": { "type": "integer", "minimum": 1 },
+        "max_output_tokens": { "type": "integer", "minimum": 1 },
+        "estimated_input_tokens": { "type": "integer", "minimum": 0 },
+        "budget_remaining_today": { "type": "integer", "minimum": 0 },
+        "overage_policy": {
+          "type": "string",
+          "enum": ["block", "warn", "allow"]
+        }
+      },
+      "additionalProperties": false
+    },
+    "eval_requirement": {
+      "type": "string",
+      "enum": ["none", "automated", "automated+human"]
+    },
+    "eval_suite_id": { "type": ["string", "null"] },
+    "regression_eval_required": { "type": "boolean" },
+    "guardrail_level": {
+      "type": "string",
+      "enum": ["standard", "strict", "maximum"]
+    },
+    "active_guardrails": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^G-\\d{2}$"
+      }
+    },
+    "output_schema_required": { "type": "boolean" },
+    "output_schema_id": { "type": ["string", "null"] },
+    "human_review_required": { "type": "boolean" },
+    "human_review_reason": { "type": ["string", "null"] },
+    "review_sla_minutes": { "type": ["integer", "null"] },
+    "context_budget": {
+      "type": "object",
+      "required": ["max_documents", "max_code_nodes", "max_graph_nodes", "compression_required", "sensitive_context_detected"],
+      "properties": {
+        "max_documents": { "type": "integer", "minimum": 0 },
+        "max_code_nodes": { "type": "integer", "minimum": 0 },
+        "max_graph_nodes": { "type": "integer", "minimum": 0 },
+        "compression_required": { "type": "boolean" },
+        "sensitive_context_detected": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "cost_budget": {
+      "type": "object",
+      "required": ["max_cost_usd", "estimated_cost_usd", "tenant_daily_budget_remaining_usd"],
+      "properties": {
+        "max_cost_usd": { "type": "number", "minimum": 0 },
+        "estimated_cost_usd": { "type": "number", "minimum": 0 },
+        "tenant_daily_budget_remaining_usd": { "type": "number" }
+      },
+      "additionalProperties": false
+    },
+    "latency_budget": {
+      "type": "object",
+      "required": ["slo_ms", "slo_p95_ms", "streaming_required"],
+      "properties": {
+        "slo_ms": { "type": "integer", "minimum": 0 },
+        "slo_p95_ms": { "type": "integer", "minimum": 0 },
+        "streaming_required": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": ["low", "medium", "high", "critical"]
+    },
+    "risk_factors": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "allowed_tools": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "forbidden_tools": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": false
+}

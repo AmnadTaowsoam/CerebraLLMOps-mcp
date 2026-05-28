@@ -1,0 +1,182 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://cerebra-mcp/schemas/llmops/llm-trace",
+  "title": "LLMTrace",
+  "description": "Schema for an LLM run trace record in CerebraLLMOps-mcp",
+  "type": "object",
+  "required": [
+    "trace_id",
+    "agent_id",
+    "task_id",
+    "tenant_id",
+    "prompt_version",
+    "prompt_id",
+    "model_id",
+    "model_requested",
+    "input_tokens",
+    "output_tokens",
+    "cost_estimate",
+    "latency_ms",
+    "latency_ttft_ms",
+    "tool_calls",
+    "tool_call_count",
+    "eval_result",
+    "status",
+    "fallback_triggered",
+    "sensitive_context_detected",
+    "context_compressed",
+    "documents_used",
+    "code_nodes_used",
+    "graph_nodes_used",
+    "human_review_required",
+    "created_at",
+    "completed_at"
+  ],
+  "properties": {
+    "trace_id": {
+      "type": "string",
+      "description": "Unique UUID for this run",
+      "pattern": "^trace-[a-f0-9-]+$"
+    },
+    "agent_id": {
+      "type": "string",
+      "description": "Agent that executed the run",
+      "pattern": "^agent-[a-z0-9-]+$"
+    },
+    "task_id": { "type": "string" },
+    "tenant_id": { "type": "string" },
+    "session_id": { "type": ["string", "null"] },
+    "parent_trace_id": { "type": ["string", "null"] },
+    "mission_id": { "type": ["string", "null"] },
+    "prompt_id": { "type": "string" },
+    "prompt_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "system_prompt_version": {
+      "type": ["string", "null"],
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "model_id": { "type": "string" },
+    "model_requested": { "type": "string" },
+    "model_provider": {
+      "type": ["string", "null"],
+      "enum": ["anthropic", "ollama", "openai", null]
+    },
+    "input_tokens": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "output_tokens": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "cached_tokens": {
+      "type": ["integer", "null"],
+      "minimum": 0
+    },
+    "cost_estimate": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Estimated cost in USD"
+    },
+    "latency_ms": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Total LLM call latency in milliseconds"
+    },
+    "latency_ttft_ms": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Time to first token in milliseconds"
+    },
+    "latency_context_ms": { "type": ["integer", "null"], "minimum": 0 },
+    "latency_scan_ms": { "type": ["integer", "null"], "minimum": 0 },
+    "latency_eval_ms": { "type": ["integer", "null"], "minimum": 0 },
+    "latency_total_ms": { "type": ["integer", "null"], "minimum": 0 },
+    "tool_calls": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of tool names called during the run"
+    },
+    "tool_call_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "eval_result": {
+      "type": "string",
+      "enum": ["pass", "fail", "skip", "pending"]
+    },
+    "eval_suite_id": { "type": ["string", "null"] },
+    "eval_run_id": { "type": ["string", "null"] },
+    "status": {
+      "type": "string",
+      "enum": ["success", "failure", "partial"]
+    },
+    "fallback_triggered": { "type": "boolean" },
+    "fallback_trigger_id": { "type": ["string", "null"] },
+    "fallback_model_id": { "type": ["string", "null"] },
+    "fallback_reason": { "type": ["string", "null"] },
+    "sensitive_context_detected": { "type": "boolean" },
+    "sensitive_context_category": {
+      "type": ["string", "null"],
+      "enum": ["credentials", "pii", "internal_system", null]
+    },
+    "sensitive_context_action": {
+      "type": ["string", "null"],
+      "enum": ["blocked", "scrubbed", "warned", null]
+    },
+    "context_compressed": { "type": "boolean" },
+    "context_quality_impact": {
+      "type": ["string", "null"],
+      "enum": ["none", "low", "medium", "high", null]
+    },
+    "documents_used": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "code_nodes_used": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "graph_nodes_used": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "human_review_required": { "type": "boolean" },
+    "human_review_completed": { "type": ["boolean", "null"] },
+    "human_review_result": {
+      "type": ["string", "null"],
+      "enum": ["approved", "rejected", "conditional", null]
+    },
+    "risk_level": {
+      "type": ["string", "null"],
+      "enum": ["low", "medium", "high", "critical", null]
+    },
+    "guardrail_level": {
+      "type": ["string", "null"],
+      "enum": ["standard", "strict", "maximum", null]
+    },
+    "guardrail_triggers": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of guardrail IDs that were triggered (G-01 through G-09)"
+    },
+    "hallucination_detected": { "type": ["boolean", "null"] },
+    "citations_found": { "type": ["integer", "null"], "minimum": 0 },
+    "citations_verified": { "type": ["integer", "null"], "minimum": 0 },
+    "citations_removed": { "type": ["integer", "null"], "minimum": 0 },
+    "streaming": { "type": ["boolean", "null"] },
+    "cache_hit": { "type": ["boolean", "null"] },
+    "routing_reason": { "type": ["string", "null"] },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "completed_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false
+}
