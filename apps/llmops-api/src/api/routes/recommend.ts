@@ -57,7 +57,7 @@ export async function recommendRoutes(app: FastifyInstance) {
       : '00000000-0000-0000-0000-000000000100';
 
     try {
-      const [promptsRes, modelsRes] = await withTenant(tenantUuid, async (client) => {
+      const [promptsRes, modelsRes, evalRes, guardrailRes] = await withTenant(tenantUuid, async (client) => {
         const p = await client.query(
           `SELECT prompt_id, name, version, task_types, model_binding, status
              FROM llmops.prompts
@@ -75,18 +75,28 @@ export async function recommendRoutes(app: FastifyInstance) {
              LIMIT $1`,
           [limit],
         ).catch(() => ({ rows: [] as any[] }));
-        return [p, m];
+        const e = await client.query(
+          `SELECT id, slug, title, frontmatter FROM llmops.synced_content
+             WHERE type = 'eval-suite' AND (status IS NULL OR status != 'deprecated')
+             ORDER BY ingested_at DESC LIMIT $1`,
+          [limit],
+        ).catch(() => ({ rows: [] as any[] }));
+        const g = await client.query(
+          `SELECT id, slug, title, frontmatter FROM llmops.synced_content
+             WHERE type = 'guardrail' AND (status IS NULL OR status != 'deprecated')
+             ORDER BY ingested_at DESC LIMIT $1`,
+          [limit],
+        ).catch(() => ({ rows: [] as any[] }));
+        return [p, m, e, g];
       });
 
-      // Eval suites + guardrails are typically content-stored (cerebra-mcp-data).
-      // For now return empty arrays — the content lake augmentation handles them.
       return reply.code(200).send({
         success: true,
         data: {
           prompts: promptsRes.rows,
           models: modelsRes.rows,
-          eval_suites: [],
-          guardrails: [],
+          eval_suites: evalRes.rows,
+          guardrails: guardrailRes.rows,
           // Echo so the agent knows what was matched
           task_type: taskType,
           expanded_task_types: expanded,
