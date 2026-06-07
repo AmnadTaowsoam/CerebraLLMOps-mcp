@@ -413,7 +413,6 @@
     "evidence": "legacy-import: pre-GRAPHGOV-02",
     "confidence": 0.3
   },
-
   {
     "source_id": "llm-prompt-cerebra-v1",
     "source_type": "prompt",
@@ -444,7 +443,6 @@
     "evidence": "GRAPHGOV-01: core eval suite validates schema compliance and behavioral invariants for every promoted prompt version.",
     "confidence": 0.95
   },
-
   {
     "source_id": "llm-agent-backend-dev",
     "source_type": "agent_instruction",
@@ -475,7 +473,6 @@
     "evidence": "GRAPHGOV-01: backend-dev instruction outputs must pass the platform guardrail to prevent tool-misuse or policy violations.",
     "confidence": 0.95
   },
-
   {
     "source_id": "llm-model-claude-sonnet-v1",
     "source_type": "model_version",
@@ -506,7 +503,6 @@
     "evidence": "GRAPHGOV-01: CerebraLLMOps-mcp owns the model registry and enforces routing policy for claude-sonnet-v1.",
     "confidence": 0.95
   },
-
   {
     "source_id": "llm-eval-cerebra-core",
     "source_type": "eval_suite",
@@ -527,7 +523,6 @@
     "evidence": "GRAPHGOV-01: eval suite includes a semver-immutability check that validates compliance with the prompt-versioning standard.",
     "confidence": 0.95
   },
-
   {
     "source_id": "llm-guard-cerebra-platform",
     "source_type": "guardrail",
@@ -556,6 +551,263 @@
     "relationship_type": "enforced_by_mcp",
     "provenance": "agent",
     "evidence": "GRAPHGOV-01: CerebraLLMOps-mcp owns and enforces the platform guardrail at the LLM proxy layer for all managed model calls.",
+    "confidence": 0.95
+  },
+  {
+    "source_id": "skill-llmops-prompt-versioning",
+    "source_type": "skill",
+    "target_id": "test-unit",
+    "target_type": "test",
+    "relationship_type": "requires_test",
+    "weight": 1,
+    "metadata": {
+      "graphgov03": {
+        "edge_id": "edge-skill-llmops-prompt-versioning-requires_test-test-unit",
+        "owner_mcp": "CerebraLLMOps-mcp",
+        "backfill_date": "2026-06-07",
+        "ticket": "GRAPHGOV-03"
+      }
+    },
+    "provenance": "agent",
+    "evidence": "GRAPHGOV-03 backfill: prompt-versioning skill creates versioned prompt artifacts; unit tests validate prompt template syntax and parameter substitution.",
+    "confidence": 1
+  },
+  {
+    "source_id": "skill-llmops-model-routing",
+    "source_type": "skill",
+    "target_id": "test-unit",
+    "target_type": "test",
+    "relationship_type": "requires_test",
+    "weight": 1,
+    "metadata": {
+      "graphgov03": {
+        "edge_id": "edge-skill-llmops-model-routing-requires_test-test-unit",
+        "owner_mcp": "CerebraLLMOps-mcp",
+        "backfill_date": "2026-06-07",
+        "ticket": "GRAPHGOV-03"
+      }
+    },
+    "provenance": "agent",
+    "evidence": "GRAPHGOV-03 backfill: model-routing skill configures LLM provider routing logic; unit tests validate fallback selection and cost-cap enforcement.",
+    "confidence": 1
+  },
+  {
+    "source_id": "skill-llmops-quality-evaluation",
+    "source_type": "skill",
+    "target_id": "test-integration",
+    "target_type": "test",
+    "relationship_type": "requires_test",
+    "weight": 1,
+    "metadata": {
+      "graphgov03": {
+        "edge_id": "edge-skill-llmops-quality-evaluation-requires_test-test-integration",
+        "owner_mcp": "CerebraLLMOps-mcp",
+        "backfill_date": "2026-06-07",
+        "ticket": "GRAPHGOV-03"
+      }
+    },
+    "provenance": "agent",
+    "evidence": "GRAPHGOV-03 backfill: quality-evaluation skill runs LLM output eval suites; integration tests verify eval harness against known-good/bad prompt outputs.",
+    "confidence": 1
+  },
+  {
+    "source_id": "skill-llmops-feedback-loop",
+    "source_type": "skill",
+    "target_id": "test-integration",
+    "target_type": "test",
+    "relationship_type": "requires_test",
+    "weight": 1,
+    "metadata": {
+      "graphgov03": {
+        "edge_id": "edge-skill-llmops-feedback-loop-requires_test-test-integration",
+        "owner_mcp": "CerebraLLMOps-mcp",
+        "backfill_date": "2026-06-07",
+        "ticket": "GRAPHGOV-03"
+      }
+    },
+    "provenance": "agent",
+    "evidence": "GRAPHGOV-03 backfill: feedback-loop skill closes evaluation cycle; integration tests verify signal collection from eval results into the routing policy.",
+    "confidence": 1
+  },
+  {
+    "source_id": "task-type-llmops-prompt-update",
+    "source_type": "task_type",
+    "target_id": "review-gate-llmops-high-risk-output",
+    "target_type": "review_gate",
+    "relationship_type": "requires_review_gate",
+    "weight": 1,
+    "metadata": {
+      "graphgov03": {
+        "edge_id": "edge-task-type-llmops-prompt-update-requires_review_gate-review-gate-llmops",
+        "owner_mcp": "CerebraLLMOps-mcp",
+        "backfill_date": "2026-06-07",
+        "ticket": "GRAPHGOV-03"
+      }
+    },
+    "provenance": "agent",
+    "evidence": "GRAPHGOV-03 backfill: prompt updates change agent output behavior — must pass the high-risk-output gate before activation in production.",
+    "confidence": 1
+  },
+  {
+    "source_id": "task-type-llmops-model-routing-change",
+    "source_type": "task_type",
+    "target_id": "review-gate-llmops-high-risk-output",
+    "target_type": "review_gate",
+    "relationship_type": "requires_review_gate",
+    "weight": 1,
+    "metadata": {
+      "graphgov03": {
+        "edge_id": "edge-task-type-llmops-model-routing-change-requires_review_gate-review-gate-llmops",
+        "owner_mcp": "CerebraLLMOps-mcp",
+        "backfill_date": "2026-06-07",
+        "ticket": "GRAPHGOV-03"
+      }
+    },
+    "provenance": "agent",
+    "evidence": "GRAPHGOV-03 backfill: model routing changes affect cost, latency, and output quality for all tenants — must pass the high-risk-output gate.",
+    "confidence": 1
+  },
+  {
+    "source_id": "skill-llmops-prompt-versioning",
+    "source_type": "skill",
+    "target_id": "std-llmops-prompt-versioning",
+    "target_type": "standard",
+    "relationship_type": "requires_standard",
+    "weight": 1,
+    "provenance": "agent",
+    "evidence": "GRAPHGOV-03 backfill: prompt-versioning skill must comply with std-llmops-prompt-versioning (versioning discipline and rollback policy for all produced prompt artifacts).",
+    "confidence": 0.95
+  },
+  {
+    "source_id": "skill-llmops-model-routing",
+    "source_type": "skill",
+    "target_id": "std-llmops-agent-behavior",
+    "target_type": "standard",
+    "relationship_type": "requires_standard",
+    "weight": 1,
+    "provenance": "agent",
+    "evidence": "GRAPHGOV-03 backfill: model-routing skill must comply with std-llmops-agent-behavior (routing decisions affect agent behavior and must follow the behavior standard).",
+    "confidence": 0.95
+  },
+  {
+    "source_id": "skill-llmops-quality-evaluation",
+    "source_type": "skill",
+    "target_id": "std-llmops-observability",
+    "target_type": "standard",
+    "relationship_type": "requires_standard",
+    "weight": 1,
+    "provenance": "agent",
+    "evidence": "GRAPHGOV-03 backfill: quality-evaluation skill must comply with std-llmops-observability (evaluation runs emit metrics and traces per observability standard).",
+    "confidence": 0.95
+  },
+  {
+    "source_id": "skill-llmops-feedback-loop",
+    "source_type": "skill",
+    "target_id": "std-llmops-observability",
+    "target_type": "standard",
+    "relationship_type": "requires_standard",
+    "weight": 1,
+    "provenance": "agent",
+    "evidence": "GRAPHGOV-03 backfill: feedback-loop skill must comply with std-llmops-observability (feedback signals are metrics that must follow the observability standard).",
+    "confidence": 0.95
+  },
+  {
+    "source_id": "skill-llmops-prompt-versioning",
+    "source_type": "skill",
+    "target_id": "role-backend-developer",
+    "target_type": "role",
+    "relationship_type": "used_by_role",
+    "weight": 1,
+    "provenance": "agent",
+    "evidence": "GRAPHGOV-03 backfill: prompt-versioning is a backend engineering skill (versioned artifact management); role-backend-developer is the primary executor per CerebraRole-mcp registry.",
+    "confidence": 0.9
+  },
+  {
+    "source_id": "skill-llmops-model-routing",
+    "source_type": "skill",
+    "target_id": "role-backend-developer",
+    "target_type": "role",
+    "relationship_type": "used_by_role",
+    "weight": 1,
+    "provenance": "agent",
+    "evidence": "GRAPHGOV-03 backfill: model-routing is a backend infrastructure skill (LLM provider config and fallback); role-backend-developer is the primary executor.",
+    "confidence": 0.9
+  },
+  {
+    "source_id": "skill-llmops-quality-evaluation",
+    "source_type": "skill",
+    "target_id": "role-qa-engineer",
+    "target_type": "role",
+    "relationship_type": "used_by_role",
+    "weight": 1,
+    "provenance": "agent",
+    "evidence": "GRAPHGOV-03 backfill: quality-evaluation is a QA/eval skill; role-qa-engineer is the primary executor for running LLM eval suites and interpreting results.",
+    "confidence": 0.9
+  },
+  {
+    "source_id": "skill-llmops-feedback-loop",
+    "source_type": "skill",
+    "target_id": "role-qa-engineer",
+    "target_type": "role",
+    "relationship_type": "used_by_role",
+    "weight": 1,
+    "provenance": "agent",
+    "evidence": "GRAPHGOV-03 backfill: feedback-loop closes the evaluation cycle — a QA responsibility; role-qa-engineer consumes this skill to tune routing policies from eval signals.",
+    "confidence": 0.9
+  },
+  {
+    "source_id": "task-type-llmops-prompt-update",
+    "source_type": "task_type",
+    "target_id": "std-llmops-prompt-versioning",
+    "target_type": "standard",
+    "relationship_type": "requires_standard",
+    "weight": 1,
+    "provenance": "agent",
+    "evidence": "GRAPHGOV-03 backfill: prompt-update tasks must follow std-llmops-prompt-versioning (every prompt change must be versioned and have a rollback path).",
+    "confidence": 0.95
+  },
+  {
+    "source_id": "task-type-llmops-model-routing-change",
+    "source_type": "task_type",
+    "target_id": "std-llmops-agent-behavior",
+    "target_type": "standard",
+    "relationship_type": "requires_standard",
+    "weight": 1,
+    "provenance": "agent",
+    "evidence": "GRAPHGOV-03 backfill: routing-change tasks must follow std-llmops-agent-behavior (provider switches affect all agents and must comply with behavioral safety policy).",
+    "confidence": 0.95
+  },
+  {
+    "source_id": "task-type-llmops-prompt-update",
+    "source_type": "task_type",
+    "target_id": "role-backend-developer",
+    "target_type": "role",
+    "relationship_type": "requires_role",
+    "weight": 1,
+    "provenance": "agent",
+    "evidence": "GRAPHGOV-03 backfill: prompt-update tasks require a backend developer to version prompt templates and validate parameter substitution in CI.",
+    "confidence": 0.9
+  },
+  {
+    "source_id": "task-type-llmops-model-routing-change",
+    "source_type": "task_type",
+    "target_id": "role-backend-developer",
+    "target_type": "role",
+    "relationship_type": "requires_role",
+    "weight": 1,
+    "provenance": "agent",
+    "evidence": "GRAPHGOV-03 backfill: model-routing-change tasks require a backend developer to configure provider endpoints and fallback chains.",
+    "confidence": 0.9
+  },
+  {
+    "source_id": "sec-llmops-guardrails",
+    "source_type": "security_rule",
+    "target_id": "review-gate-llmops-high-risk-output",
+    "target_type": "review_gate",
+    "relationship_type": "reviewed_by_security_gate",
+    "weight": 1,
+    "provenance": "agent",
+    "evidence": "GRAPHGOV-03 backfill: LLMOps guardrail security rule must be reviewed through the high-risk-output review gate (any guardrail policy change is a high-risk security event requiring review).",
     "confidence": 0.95
   }
 ]
