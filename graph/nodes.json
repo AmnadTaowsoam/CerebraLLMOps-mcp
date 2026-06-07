@@ -127,5 +127,60 @@
     "status": "active",
     "priority": "high",
     "tags": ["llmops", "model-routing", "platform"]
+  },
+  {
+    "node_id": "llm-guard-cerebra-platform",
+    "node_type": "guardrail",
+    "name": "Cerebra Platform Guardrail",
+    "description": "Baseline input/output guardrail applied to all Cerebra LLM calls: PII masking, prompt injection detection, response-length enforcement, content-policy compliance.",
+    "owner_mcp": "CerebraLLMOps-mcp",
+    "status": "active",
+    "priority": "critical",
+    "tags": ["llmops", "guardrail", "security", "pii", "content-policy"],
+    "source_path": "content/guardrails/platform-guardrail-policy.md"
+  },
+  {
+    "node_id": "llm-eval-cerebra-core",
+    "node_type": "eval_suite",
+    "name": "Cerebra Core Eval Suite",
+    "description": "Deterministic evaluation suite for all Cerebra prompts and models: schema compliance, behavioral invariants, regression tests, and hallucination detection.",
+    "owner_mcp": "CerebraLLMOps-mcp",
+    "status": "active",
+    "priority": "high",
+    "tags": ["llmops", "evaluation", "quality", "regression"],
+    "source_path": "content/evaluation/core-eval-suite.md"
+  },
+  {
+    "node_id": "llm-model-claude-sonnet-v1",
+    "node_type": "model_version",
+    "name": "claude-sonnet-4.5 (production v1)",
+    "description": "Production model version for Cerebra agent tasks: claude-sonnet-4.5, temperature 0.3, max_tokens 8192, context window 200k. Governed by LLMOps guardrail and evaluated by core eval suite.",
+    "owner_mcp": "CerebraLLMOps-mcp",
+    "status": "active",
+    "priority": "critical",
+    "tags": ["llmops", "model", "claude", "anthropic"],
+    "source_path": "content/models/claude-sonnet-v1.md"
+  },
+  {
+    "node_id": "llm-prompt-cerebra-v1",
+    "node_type": "prompt",
+    "name": "Cerebra Agent System Prompt v1",
+    "description": "Base system prompt template for all Cerebra agent sessions: role preamble, tool-use rules, evidence requirements, escalation triggers. Managed under STD-AI-PROMPT-VERSION-001.",
+    "owner_mcp": "CerebraLLMOps-mcp",
+    "status": "active",
+    "priority": "critical",
+    "tags": ["llmops", "prompt", "system-prompt", "agent"],
+    "source_path": "content/prompts/cerebra-system-prompt-v1.md"
+  },
+  {
+    "node_id": "llm-agent-backend-dev",
+    "node_type": "agent_instruction",
+    "name": "Backend Developer Agent Instruction",
+    "description": "System instruction for the backend-developer agent role: service-boundary rules, DB write patterns with SET LOCAL actor_id, migration safety checklist, and evidence requirements before marking tickets done.",
+    "owner_mcp": "CerebraLLMOps-mcp",
+    "status": "active",
+    "priority": "high",
+    "tags": ["llmops", "agent", "backend", "instruction"],
+    "source_path": "content/agents/backend-dev-instruction.md"
   }
 ]
