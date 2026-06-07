@@ -12,7 +12,10 @@
         "reason": null,
         "evidence": null
       }
-    }
+    },
+    "provenance": "derived",
+    "evidence": "legacy-import: pre-GRAPHGOV-02",
+    "confidence": 0.3
   },
   {
     "source_id": "mcp-cerebra-llmops",
@@ -27,7 +30,10 @@
         "reason": null,
         "evidence": null
       }
-    }
+    },
+    "provenance": "derived",
+    "evidence": "legacy-import: pre-GRAPHGOV-02",
+    "confidence": 0.3
   },
   {
     "source_id": "mcp-cerebra-llmops",
@@ -42,7 +48,10 @@
         "reason": null,
         "evidence": null
       }
-    }
+    },
+    "provenance": "derived",
+    "evidence": "legacy-import: pre-GRAPHGOV-02",
+    "confidence": 0.3
   },
   {
     "source_id": "mcp-cerebra-llmops",
@@ -57,7 +66,10 @@
         "reason": null,
         "evidence": null
       }
-    }
+    },
+    "provenance": "derived",
+    "evidence": "legacy-import: pre-GRAPHGOV-02",
+    "confidence": 0.3
   },
   {
     "source_id": "mcp-cerebra-llmops",
@@ -72,7 +84,10 @@
         "reason": null,
         "evidence": null
       }
-    }
+    },
+    "provenance": "derived",
+    "evidence": "legacy-import: pre-GRAPHGOV-02",
+    "confidence": 0.3
   },
   {
     "source_id": "mcp-cerebra-llmops",
@@ -87,7 +102,10 @@
         "reason": null,
         "evidence": null
       }
-    }
+    },
+    "provenance": "derived",
+    "evidence": "legacy-import: pre-GRAPHGOV-02",
+    "confidence": 0.3
   },
   {
     "source_id": "mcp-cerebra-llmops",
@@ -102,7 +120,10 @@
         "reason": null,
         "evidence": null
       }
-    }
+    },
+    "provenance": "derived",
+    "evidence": "legacy-import: pre-GRAPHGOV-02",
+    "confidence": 0.3
   },
   {
     "source_id": "mcp-cerebra-llmops",
@@ -117,7 +138,10 @@
         "reason": null,
         "evidence": null
       }
-    }
+    },
+    "provenance": "derived",
+    "evidence": "legacy-import: pre-GRAPHGOV-02",
+    "confidence": 0.3
   },
   {
     "source_id": "mcp-cerebra-llmops",
@@ -132,7 +156,10 @@
         "reason": null,
         "evidence": null
       }
-    }
+    },
+    "provenance": "derived",
+    "evidence": "legacy-import: pre-GRAPHGOV-02",
+    "confidence": 0.3
   },
   {
     "source_id": "mcp-cerebra-llmops",
@@ -147,7 +174,10 @@
         "reason": null,
         "evidence": null
       }
-    }
+    },
+    "provenance": "derived",
+    "evidence": "legacy-import: pre-GRAPHGOV-02",
+    "confidence": 0.3
   },
   {
     "source_id": "mcp-cerebra-llmops",
@@ -162,7 +192,10 @@
         "reason": null,
         "evidence": null
       }
-    }
+    },
+    "provenance": "derived",
+    "evidence": "legacy-import: pre-GRAPHGOV-02",
+    "confidence": 0.3
   },
   {
     "source_id": "skill-llmops-prompt-versioning",
@@ -177,7 +210,10 @@
         "reason": "Prompt versioning skill must enforce the prompt versioning standard",
         "evidence": null
       }
-    }
+    },
+    "provenance": "derived",
+    "evidence": "legacy-import: pre-GRAPHGOV-02",
+    "confidence": 0.3
   },
   {
     "source_id": "skill-llmops-prompt-versioning",
@@ -192,7 +228,10 @@
         "reason": "Prompt versioning skill is the execution skill for prompt update tasks",
         "evidence": null
       }
-    }
+    },
+    "provenance": "derived",
+    "evidence": "legacy-import: pre-GRAPHGOV-02",
+    "confidence": 0.3
   },
   {
     "source_id": "skill-llmops-model-routing",
@@ -207,7 +246,10 @@
         "reason": "Model routing skill is the execution skill for routing change tasks",
         "evidence": null
       }
-    }
+    },
+    "provenance": "derived",
+    "evidence": "legacy-import: pre-GRAPHGOV-02",
+    "confidence": 0.3
   },
   {
     "source_id": "skill-llmops-quality-evaluation",
@@ -222,7 +264,10 @@
         "reason": "Quality evaluation is required as part of prompt version promotion",
         "evidence": null
       }
-    }
+    },
+    "provenance": "derived",
+    "evidence": "legacy-import: pre-GRAPHGOV-02",
+    "confidence": 0.3
   },
   {
     "source_id": "skill-llmops-quality-evaluation",
@@ -237,7 +282,10 @@
         "reason": "Quality evaluation via regression suite is required before model routing changes",
         "evidence": null
       }
-    }
+    },
+    "provenance": "derived",
+    "evidence": "legacy-import: pre-GRAPHGOV-02",
+    "confidence": 0.3
   },
   {
     "source_id": "skill-llmops-feedback-loop",
@@ -252,7 +300,10 @@
         "reason": "Feedback loop feeds improvement proposals that result in prompt updates",
         "evidence": null
       }
-    }
+    },
+    "provenance": "derived",
+    "evidence": "legacy-import: pre-GRAPHGOV-02",
+    "confidence": 0.3
   },
   {
     "source_id": "review-gate-llmops-high-risk-output",
@@ -267,7 +318,10 @@
         "reason": "The high-risk output review gate validates compliance with the agent behavior standard",
         "evidence": null
       }
-    }
+    },
+    "provenance": "derived",
+    "evidence": "legacy-import: pre-GRAPHGOV-02",
+    "confidence": 0.3
   },
   {
     "source_id": "review-gate-llmops-high-risk-output",
@@ -282,7 +336,10 @@
         "reason": "High-risk review confirms trace fields are complete per observability standard",
         "evidence": null
       }
-    }
+    },
+    "provenance": "derived",
+    "evidence": "legacy-import: pre-GRAPHGOV-02",
+    "confidence": 0.3
   },
   {
     "source_id": "sec-llmops-guardrails",
@@ -297,7 +354,10 @@
         "reason": "Guardrails must be enforced during prompt update evaluation runs",
         "evidence": null
       }
-    }
+    },
+    "provenance": "derived",
+    "evidence": "legacy-import: pre-GRAPHGOV-02",
+    "confidence": 0.3
   },
   {
     "source_id": "sec-llmops-guardrails",
@@ -312,7 +372,10 @@
         "reason": "Guardrails govern the shadow mode validation runs during model routing changes",
         "evidence": null
       }
-    }
+    },
+    "provenance": "derived",
+    "evidence": "legacy-import: pre-GRAPHGOV-02",
+    "confidence": 0.3
   },
   {
     "source_id": "std-llmops-agent-behavior",
@@ -327,7 +390,10 @@
         "reason": "LLMOps agent behavior standard extends and specializes the core agent behavior standard",
         "evidence": null
       }
-    }
+    },
+    "provenance": "derived",
+    "evidence": "legacy-import: pre-GRAPHGOV-02",
+    "confidence": 0.3
   },
   {
     "source_id": "std-llmops-prompt-versioning",
@@ -342,6 +408,160 @@
         "reason": "Prompt versioning must be done by agents following the core agent behavior standard",
         "evidence": null
       }
-    }
+    },
+    "provenance": "derived",
+    "evidence": "legacy-import: pre-GRAPHGOV-02",
+    "confidence": 0.3
+  },
+
+  // ── GRAPHGOV-01: mandatory edges for LLMOps governance node types ─────────
+  // prompt: llm-prompt-cerebra-v1 (3 mandatory edges)
+  {
+    "source_id": "llm-prompt-cerebra-v1",
+    "source_type": "prompt",
+    "target_id": "task-type-llmops-prompt-update",
+    "target_type": "task_type",
+    "relationship_type": "applies_to_task_type",
+    "provenance": "agent",
+    "evidence": "GRAPHGOV-01: system prompt templates are exercised during prompt-update tasks (task-type-llmops-prompt-update) — they are the artifact being versioned.",
+    "confidence": 0.95
+  },
+  {
+    "source_id": "llm-prompt-cerebra-v1",
+    "source_type": "prompt",
+    "target_id": "llm-guard-cerebra-platform",
+    "target_type": "guardrail",
+    "relationship_type": "governed_by_guardrail",
+    "provenance": "agent",
+    "evidence": "GRAPHGOV-01: all managed prompts must pass the platform guardrail (PII mask, injection detection) before evaluation runs.",
+    "confidence": 0.95
+  },
+  {
+    "source_id": "llm-prompt-cerebra-v1",
+    "source_type": "prompt",
+    "target_id": "llm-eval-cerebra-core",
+    "target_type": "eval_suite",
+    "relationship_type": "evaluated_by_suite",
+    "provenance": "agent",
+    "evidence": "GRAPHGOV-01: core eval suite validates schema compliance and behavioral invariants for every promoted prompt version.",
+    "confidence": 0.95
+  },
+
+  // agent_instruction: llm-agent-backend-dev (3 mandatory edges)
+  {
+    "source_id": "llm-agent-backend-dev",
+    "source_type": "agent_instruction",
+    "target_id": "role-backend-developer",
+    "target_type": "role",
+    "relationship_type": "used_by_role",
+    "provenance": "agent",
+    "evidence": "GRAPHGOV-01: this instruction governs the backend-developer role agent sessions — it is the role's system-prompt contract.",
+    "confidence": 0.95
+  },
+  {
+    "source_id": "llm-agent-backend-dev",
+    "source_type": "agent_instruction",
+    "target_id": "std-llmops-agent-behavior",
+    "target_type": "standard",
+    "relationship_type": "must_use_standard",
+    "provenance": "agent",
+    "evidence": "GRAPHGOV-01: agent instruction extends std-llmops-agent-behavior — orchestrator-first, evidence requirements, and escalation triggers are inherited.",
+    "confidence": 0.95
+  },
+  {
+    "source_id": "llm-agent-backend-dev",
+    "source_type": "agent_instruction",
+    "target_id": "llm-guard-cerebra-platform",
+    "target_type": "guardrail",
+    "relationship_type": "governed_by_guardrail",
+    "provenance": "agent",
+    "evidence": "GRAPHGOV-01: backend-dev instruction outputs must pass the platform guardrail to prevent tool-misuse or policy violations.",
+    "confidence": 0.95
+  },
+
+  // model_version: llm-model-claude-sonnet-v1 (3 mandatory edges)
+  {
+    "source_id": "llm-model-claude-sonnet-v1",
+    "source_type": "model_version",
+    "target_id": "llm-guard-cerebra-platform",
+    "target_type": "guardrail",
+    "relationship_type": "governed_by_guardrail",
+    "provenance": "agent",
+    "evidence": "GRAPHGOV-01: all LLM calls routed to this model version pass through the platform guardrail — content policy and PII masking applied at the proxy layer.",
+    "confidence": 0.95
+  },
+  {
+    "source_id": "llm-model-claude-sonnet-v1",
+    "source_type": "model_version",
+    "target_id": "llm-eval-cerebra-core",
+    "target_type": "eval_suite",
+    "relationship_type": "evaluated_by_suite",
+    "provenance": "agent",
+    "evidence": "GRAPHGOV-01: core eval suite runs regression tests against this model version before every promotion and after provider upgrades.",
+    "confidence": 0.95
+  },
+  {
+    "source_id": "llm-model-claude-sonnet-v1",
+    "source_type": "model_version",
+    "target_id": "mcp-cerebra-llmops",
+    "target_type": "mcp",
+    "relationship_type": "enforced_by_mcp",
+    "provenance": "agent",
+    "evidence": "GRAPHGOV-01: CerebraLLMOps-mcp owns the model registry and enforces routing policy for claude-sonnet-v1.",
+    "confidence": 0.95
+  },
+
+  // eval_suite: llm-eval-cerebra-core (2 mandatory edges)
+  {
+    "source_id": "llm-eval-cerebra-core",
+    "source_type": "eval_suite",
+    "target_id": "llm-prompt-cerebra-v1",
+    "target_type": "prompt",
+    "relationship_type": "evaluates_target",
+    "provenance": "agent",
+    "evidence": "GRAPHGOV-01: core eval suite's primary target is the Cerebra system prompt v1 — behavioral invariants and schema checks run against it.",
+    "confidence": 0.95
+  },
+  {
+    "source_id": "llm-eval-cerebra-core",
+    "source_type": "eval_suite",
+    "target_id": "std-llmops-prompt-versioning",
+    "target_type": "standard",
+    "relationship_type": "validates_standard",
+    "provenance": "agent",
+    "evidence": "GRAPHGOV-01: eval suite includes a semver-immutability check that validates compliance with the prompt-versioning standard.",
+    "confidence": 0.95
+  },
+
+  // guardrail: llm-guard-cerebra-platform (3 mandatory edges)
+  {
+    "source_id": "llm-guard-cerebra-platform",
+    "source_type": "guardrail",
+    "target_id": "task-type-llmops-prompt-update",
+    "target_type": "task_type",
+    "relationship_type": "required_for_task_type",
+    "provenance": "agent",
+    "evidence": "GRAPHGOV-01: prompt-update evaluation runs are gated behind the platform guardrail — no prompt is promoted without passing PII and injection checks.",
+    "confidence": 0.95
+  },
+  {
+    "source_id": "llm-guard-cerebra-platform",
+    "source_type": "guardrail",
+    "target_id": "review-gate-llmops-high-risk-output",
+    "target_type": "review_gate",
+    "relationship_type": "reviewed_by_security_gate",
+    "provenance": "agent",
+    "evidence": "GRAPHGOV-01: guardrail policy changes require the high-risk-output review gate — all 12 checklist items must pass before a guardrail is updated in production.",
+    "confidence": 0.95
+  },
+  {
+    "source_id": "llm-guard-cerebra-platform",
+    "source_type": "guardrail",
+    "target_id": "mcp-cerebra-llmops",
+    "target_type": "mcp",
+    "relationship_type": "enforced_by_mcp",
+    "provenance": "agent",
+    "evidence": "GRAPHGOV-01: CerebraLLMOps-mcp owns and enforces the platform guardrail at the LLM proxy layer for all managed model calls.",
+    "confidence": 0.95
   }
 ]
