@@ -27,6 +27,41 @@ export async function buildApp() {
     methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
   });
 
+  // OBS-FLEET-01: Prometheus exposition so this service is scrapable (was 404 -> DOWN).
+  // prom-client is not a dependency here yet; these process metrics use the same names
+  // as prom-client's collectDefaultMetrics so existing Grafana runtime panels include
+  // this service. Follow-up: full prom-client instrumentation (http_request_duration_seconds).
+  app.get('/metrics', async (_req, reply) => {
+    const mem = process.memoryUsage();
+    const cpu = process.cpuUsage();
+    const startTime = Date.now() / 1000 - process.uptime();
+    reply.type('text/plain; version=0.0.4');
+    return [
+      '# HELP process_resident_memory_bytes Resident memory size in bytes.',
+      '# TYPE process_resident_memory_bytes gauge',
+      `process_resident_memory_bytes ${mem.rss}`,
+      '# HELP nodejs_heap_size_total_bytes Process heap size from Node.js in bytes.',
+      '# TYPE nodejs_heap_size_total_bytes gauge',
+      `nodejs_heap_size_total_bytes ${mem.heapTotal}`,
+      '# HELP nodejs_heap_size_used_bytes Process heap used from Node.js in bytes.',
+      '# TYPE nodejs_heap_size_used_bytes gauge',
+      `nodejs_heap_size_used_bytes ${mem.heapUsed}`,
+      '# HELP process_cpu_user_seconds_total Total user CPU time spent in seconds.',
+      '# TYPE process_cpu_user_seconds_total counter',
+      `process_cpu_user_seconds_total ${(cpu.user / 1e6).toFixed(6)}`,
+      '# HELP process_cpu_system_seconds_total Total system CPU time spent in seconds.',
+      '# TYPE process_cpu_system_seconds_total counter',
+      `process_cpu_system_seconds_total ${(cpu.system / 1e6).toFixed(6)}`,
+      '# HELP process_start_time_seconds Start time of the process since unix epoch in seconds.',
+      '# TYPE process_start_time_seconds gauge',
+      `process_start_time_seconds ${startTime.toFixed(3)}`,
+      '# HELP nodejs_version_info Node.js version info.',
+      '# TYPE nodejs_version_info gauge',
+      `nodejs_version_info{version="${process.version}"} 1`,
+      '',
+    ].join('\n');
+  });
+
   try {
     initDb();
     logger.info('[App] DB initialized');
