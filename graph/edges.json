@@ -809,5 +809,215 @@
     "provenance": "agent",
     "evidence": "GRAPHGOV-03 backfill: LLMOps guardrail security rule must be reviewed through the high-risk-output review gate (any guardrail policy change is a high-risk security event requiring review).",
     "confidence": 0.95
+  },
+  {
+    "source_id": "std-llmops-prompt-versioning",
+    "source_type": "standard",
+    "target_id": "mcp-cerebra-llmops",
+    "target_type": "mcp",
+    "relationship_type": "enforced_by_mcp",
+    "confidence": 0.4,
+    "provenance": "derived",
+    "evidence": "Backfill (GRAPHGOV-03): \"Prompt Versioning Standard\" supports the \"CerebraLLMOps-mcp\" task type; auto-suggested by keyword overlap for owner review.",
+    "metadata": {
+      "backfill": true,
+      "needs_owner_review": true
+    }
+  },
+  {
+    "source_id": "std-llmops-agent-behavior",
+    "source_type": "standard",
+    "target_id": "mcp-cerebra-llmops",
+    "target_type": "mcp",
+    "relationship_type": "enforced_by_mcp",
+    "confidence": 0.4,
+    "provenance": "derived",
+    "evidence": "Backfill (GRAPHGOV-03): \"LLMOps Agent Behavior Standard\" supports the \"CerebraLLMOps-mcp\" task type; auto-suggested by keyword overlap for owner review.",
+    "metadata": {
+      "backfill": true,
+      "needs_owner_review": true
+    }
+  },
+  {
+    "source_id": "std-llmops-observability",
+    "source_type": "standard",
+    "target_id": "mcp-cerebra-llmops",
+    "target_type": "mcp",
+    "relationship_type": "enforced_by_mcp",
+    "confidence": 0.4,
+    "provenance": "derived",
+    "evidence": "Backfill (GRAPHGOV-03): \"LLM Observability Standard\" supports the \"CerebraLLMOps-mcp\" task type; auto-suggested by keyword overlap for owner review.",
+    "metadata": {
+      "backfill": true,
+      "needs_owner_review": true
+    }
+  },
+  {
+    "source_id": "std-llmops-prompt-versioning",
+    "source_type": "standard",
+    "target_id": "test-unit",
+    "target_type": "test",
+    "relationship_type": "validated_by_test",
+    "confidence": 0.4,
+    "provenance": "derived",
+    "evidence": "Backfill (GRAPHGOV-03): \"Prompt Versioning Standard\" supports the \"unit test suite\" task type; auto-suggested by keyword overlap for owner review.",
+    "metadata": {
+      "backfill": true,
+      "needs_owner_review": true
+    }
+  },
+  {
+    "source_id": "std-llmops-agent-behavior",
+    "source_type": "standard",
+    "target_id": "test-unit",
+    "target_type": "test",
+    "relationship_type": "validated_by_test",
+    "confidence": 0.4,
+    "provenance": "derived",
+    "evidence": "Backfill (GRAPHGOV-03): \"LLMOps Agent Behavior Standard\" supports the \"unit test suite\" task type; auto-suggested by keyword overlap for owner review.",
+    "metadata": {
+      "backfill": true,
+      "needs_owner_review": true
+    }
+  },
+  {
+    "source_id": "std-llmops-observability",
+    "source_type": "standard",
+    "target_id": "test-unit",
+    "target_type": "test",
+    "relationship_type": "validated_by_test",
+    "confidence": 0.4,
+    "provenance": "derived",
+    "evidence": "Backfill (GRAPHGOV-03): \"LLM Observability Standard\" supports the \"unit test suite\" task type; auto-suggested by keyword overlap for owner review.",
+    "metadata": {
+      "backfill": true,
+      "needs_owner_review": true
+    }
+  },
+  {
+    "source_id": "std-llmops-prompt-versioning",
+    "source_type": "standard",
+    "target_id": "task-type-llmops-prompt-update",
+    "target_type": "task_type",
+    "relationship_type": "required_for_task_type",
+    "confidence": 0.4,
+    "provenance": "derived",
+    "evidence": "Backfill (GRAPHGOV-03): \"Prompt Versioning Standard\" supports the \"Prompt Version Update\" task type; auto-suggested by keyword overlap for owner review.",
+    "metadata": {
+      "backfill": true,
+      "needs_owner_review": true
+    }
+  },
+  {
+    "source_id": "std-llmops-agent-behavior",
+    "source_type": "standard",
+    "target_id": "task-type-llmops-prompt-update",
+    "target_type": "task_type",
+    "relationship_type": "required_for_task_type",
+    "confidence": 0.4,
+    "provenance": "derived",
+    "evidence": "Backfill (GRAPHGOV-03): \"LLMOps Agent Behavior Standard\" supports the \"Prompt Version Update\" task type; auto-suggested by keyword overlap for owner review.",
+    "metadata": {
+      "backfill": true,
+      "needs_owner_review": true
+    }
+  },
+  {
+    "source_id": "std-llmops-observability",
+    "source_type": "standard",
+    "target_id": "task-type-llmops-prompt-update",
+    "target_type": "task_type",
+    "relationship_type": "required_for_task_type",
+    "confidence": 0.4,
+    "provenance": "derived",
+    "evidence": "Backfill (GRAPHGOV-03): \"LLM Observability Standard\" supports the \"Prompt Version Update\" task type; auto-suggested by keyword overlap for owner review.",
+    "metadata": {
+      "backfill": true,
+      "needs_owner_review": true
+    }
+  },
+  {
+    "source_id": "std-llmops-prompt-versioning",
+    "source_type": "standard",
+    "target_id": "chk-agent-output-review",
+    "target_type": "checklist",
+    "relationship_type": "validated_by_checklist",
+    "confidence": 0.4,
+    "provenance": "derived",
+    "evidence": "Backfill (GRAPHGOV-03): \"Prompt Versioning Standard\" supports the \"Agent Output Review Checklist\" task type; auto-suggested by keyword overlap for owner review.",
+    "metadata": {
+      "backfill": true,
+      "needs_owner_review": true
+    }
+  },
+  {
+    "source_id": "std-llmops-agent-behavior",
+    "source_type": "standard",
+    "target_id": "chk-agent-output-review",
+    "target_type": "checklist",
+    "relationship_type": "validated_by_checklist",
+    "confidence": 0.4,
+    "provenance": "derived",
+    "evidence": "Backfill (GRAPHGOV-03): \"LLMOps Agent Behavior Standard\" supports the \"Agent Output Review Checklist\" task type; auto-suggested by keyword overlap for owner review.",
+    "metadata": {
+      "backfill": true,
+      "needs_owner_review": true
+    }
+  },
+  {
+    "source_id": "std-llmops-observability",
+    "source_type": "standard",
+    "target_id": "chk-agent-output-review",
+    "target_type": "checklist",
+    "relationship_type": "validated_by_checklist",
+    "confidence": 0.4,
+    "provenance": "derived",
+    "evidence": "Backfill (GRAPHGOV-03): \"LLM Observability Standard\" supports the \"Agent Output Review Checklist\" task type; auto-suggested by keyword overlap for owner review.",
+    "metadata": {
+      "backfill": true,
+      "needs_owner_review": true
+    }
+  },
+  {
+    "source_id": "task-type-llmops-prompt-update",
+    "source_type": "task_type",
+    "target_id": "test-unit",
+    "target_type": "test",
+    "relationship_type": "requires_test",
+    "confidence": 0.4,
+    "provenance": "derived",
+    "evidence": "Backfill (GRAPHGOV-03): \"Prompt Version Update\" supports the \"unit test suite\" task type; auto-suggested by keyword overlap for owner review.",
+    "metadata": {
+      "backfill": true,
+      "needs_owner_review": true
+    }
+  },
+  {
+    "source_id": "task-type-llmops-model-routing-change",
+    "source_type": "task_type",
+    "target_id": "test-regression",
+    "target_type": "test",
+    "relationship_type": "requires_test",
+    "confidence": 0.4,
+    "provenance": "derived",
+    "evidence": "Backfill (GRAPHGOV-03): \"Model Routing Change\" supports the \"regression test suite\" task type; auto-suggested by keyword overlap for owner review.",
+    "metadata": {
+      "backfill": true,
+      "needs_owner_review": true
+    }
+  },
+  {
+    "source_id": "review-gate-llmops-high-risk-output",
+    "source_type": "review_gate",
+    "target_id": "task-type-llmops-prompt-update",
+    "target_type": "task_type",
+    "relationship_type": "blocks_merge_if_fail",
+    "confidence": 0.4,
+    "provenance": "derived",
+    "evidence": "Backfill (GRAPHGOV-03): \"LLMOps High-Risk Output Review Gate\" supports the \"Prompt Version Update\" task type; auto-suggested by keyword overlap for owner review.",
+    "metadata": {
+      "backfill": true,
+      "needs_owner_review": true
+    }
   }
 ]
